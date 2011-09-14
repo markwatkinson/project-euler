@@ -41,3 +41,7 @@ def primes():
       primes += [i]
       yield i
     i+=1
+
+
+def product(seq):
+  return reduce(lambda a, b: a*b, seq)
