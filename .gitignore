@@ -2,3 +2,5 @@
 *.swp
 *.kate-swp
 .directory
+
+*.pyc
