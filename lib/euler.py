@@ -11,6 +11,10 @@ def factor(n):
     a+=1
   return factors
 
+
+def is_prime(n):
+  return len(factor(n)) == 1
+
 def divisors(n):
   """ returns a list of the divisors that divide into n (including 1 and itself)
   warning: slow """
