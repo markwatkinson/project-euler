@@ -15,7 +15,7 @@ def divisors(n):
   """ returns a list of the divisors that divide into n (including 1 and itself)
   warning: slow """
   divisors = []
-  for i in xrange(1, int(math.sqrt(n))+1):
+  for i in xrange(1, int(math.sqrt(n))+1, 2 if n%2 else 1):
     if n % i == 0: divisors += [i, n/i]
   divisors.sort()
   return divisors
