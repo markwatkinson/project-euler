@@ -11,6 +11,25 @@ def factor(n):
     a+=1
   return factors
 
+def num_divisors(n):
+  """ Returns the number of divisors of a number """
+  # special case
+  if n < 1: raise Exception("num_divisors called with {0}".format(n))
+  if n == 1: return 1
+
+  # if memory serves, the way to do this is to take the prime factors
+  # and look at how many times each is repeated. Add 1 to each power, then
+  # multiply the results
+  
+  factors = factor(n)
+  powers = []  
+  for f in set(factors): # unique
+    powers += [factors.count(f)]
+  
+  powers = [1+p for p in powers]  
+  return product(powers)
+    
+
 def is_palindrome(n):
   """ Returns true if a number is palindromic, else false """
   s = str(n)
