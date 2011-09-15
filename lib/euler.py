@@ -97,4 +97,15 @@ def lexicographic_permutation(seq):
   new_seq[l] = tmp
   new_seq = new_seq[:k+1] + new_seq[k+1:][::-1]
   return new_seq
-    
+
+
+def fibonacci():
+  """ generates the fibonacci sequence indefinitely """
+  a, b = 1, 1
+  yield a
+  yield b
+  while 1:
+    a, b = b, a+b
+    yield b
+
+  
