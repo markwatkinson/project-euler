@@ -74,3 +74,27 @@ def primes():
 
 def product(seq):
   return reduce(lambda a, b: a*b, seq)
+
+
+def lexicographic_permutation(seq):
+  # http://en.wikipedia.org/wiki/Permutation#Systematic_generation_of_all_permutations
+  k = None
+  for i in range(len(seq)-1)[::-1]:
+    if seq[i] < seq[i+1]:
+      k = i
+      break
+  if k is None: raise Exception('no more permutations')
+
+  l = None
+  for i in range(len(seq))[::-1]:
+    if seq[k] < seq[i]:
+      l = i
+      break
+  assert l is not None
+  new_seq = [s for s in seq]
+  tmp = seq[k]
+  new_seq[k] = seq[l]
+  new_seq[l] = tmp
+  new_seq = new_seq[:k+1] + new_seq[k+1:][::-1]
+  return new_seq
+    
