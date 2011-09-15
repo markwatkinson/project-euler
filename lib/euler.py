@@ -17,6 +17,7 @@ def divisors(n):
   divisors = []
   for i in xrange(1, int(math.sqrt(n))+1, 2 if n%2 else 1):
     if n % i == 0: divisors += [i, n/i]
+  divisors = list(set(divisors))
   divisors.sort()
   return divisors
 
