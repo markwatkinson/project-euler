@@ -11,6 +11,15 @@ def factor(n):
     a+=1
   return factors
 
+def divisors(n):
+  """ returns a list of the divisors that divide into n (including 1 and itself)
+  warning: slow """
+  divisors = []
+  for i in xrange(1, int(math.sqrt(n))+1):
+    if n % i == 0: divisors += [i, n/i]
+  divisors.sort()
+  return divisors
+
 def num_divisors(n):
   """ Returns the number of divisors of a number """
   # special case
