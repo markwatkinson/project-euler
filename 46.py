@@ -9,7 +9,7 @@ from lib import euler
 from sys import exit
 
 """
-What we're going to do here is iterete over odd integers indefinitely,
+What we're going to do here is iterate over odd integers indefinitely,
 filling up an array of primes and squares up to the current integer as we go.
 Then we're going to iterate over the primes, subtracting the prime from the
 integer, and seeing if the difference can be made up in the list of squares
