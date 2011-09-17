@@ -130,4 +130,31 @@ def fibonacci():
     a, b = b, a+b
     yield b
 
+
+
+def quadratic(a, b, c):
+  try: 
+    determinant = math.sqrt( b**2 - 4*a*c )
+    
+  except: return None
+  return ((-b + determinant)/(2*a), (-b - determinant)/(2*a))
+
+def is_pentagonal(p):
+
+  if p != int(p) or p < 1: return False
+  # p = n(3n-1)/2
+  # we need to see if there exists a real integer solution for n given that we
+  # know p
+  # 2p = n(3n-1)
+  # 2p = 3n**2 - n
+  # 3n**2 - n - 2p = 0
+  # quadratic in n
+  n = quadratic(3, -1, -2*p)
+  if n is None: return False
+  #print n
+  for soln in n:
+    if soln >= 1 and int(soln) == soln:
+      #print soln, '...'
+      return True
+  return False
   
