@@ -85,6 +85,10 @@ def product(seq):
 
 
 def lexicographic_permutation(seq):
+  """ BUG: I hacked this together quickly and it always returns a list
+  even if the input was a string.
+  I don't want to change it for compat reasons
+  """
   # http://en.wikipedia.org/wiki/Permutation#Systematic_generation_of_all_permutations
   k = None
   for i in range(len(seq)-1)[::-1]:
@@ -106,6 +110,16 @@ def lexicographic_permutation(seq):
   new_seq = new_seq[:k+1] + new_seq[k+1:][::-1]
   return new_seq
 
+def permutate(seq):
+  is_str = isinstance(seq, str)
+  yield seq
+  while 1:
+    try:
+      seq = lexicographic_permutation(seq)
+      if is_str: seq = ''.join(seq)
+      yield seq
+    except:
+      break
 
 def fibonacci():
   """ generates the fibonacci sequence indefinitely """
