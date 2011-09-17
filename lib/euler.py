@@ -135,12 +135,39 @@ def fibonacci():
 def quadratic(a, b, c):
   try: 
     determinant = math.sqrt( b**2 - 4*a*c )
-    
   except: return None
   return ((-b + determinant)/(2*a), (-b - determinant)/(2*a))
 
-def is_pentagonal(p):
 
+def triangular_numbers(n=1):
+  while 1:
+    yield n*(n+1)/2
+    n += 1
+
+def is_triangle(n):
+  """ Return true if a number is triangular"""
+  if n != int(n) or n < 1: return False
+  # T = n(n+1)/2
+  # n**2 - n - 2*T = 0
+  s = quadratic(1, -1, -2*n)
+  if s is None: return False
+  for soln in s:
+    if soln >= 1 and int(soln) == soln: return True
+  return False
+
+def is_hexagonal(n):
+  """ Return true if a number is hexagonal"""
+  if n != int(n) or n < 1: return False
+  # H = n(2n-1)
+  # 2n**2 - n - H = 0
+  s = quadratic(2, -1, -1*n)
+  if s is None: return False
+  for soln in s:
+    if soln >= 1 and int(soln) == soln: return True
+  return False
+
+def is_pentagonal(p):
+  """ Return true if a number is pentagonal"""
   if p != int(p) or p < 1: return False
   # p = n(3n-1)/2
   # we need to see if there exists a real integer solution for n given that we
@@ -154,7 +181,6 @@ def is_pentagonal(p):
   #print n
   for soln in n:
     if soln >= 1 and int(soln) == soln:
-      #print soln, '...'
       return True
   return False
   
