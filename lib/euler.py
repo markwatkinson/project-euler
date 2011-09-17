@@ -13,7 +13,11 @@ def factor(n):
 
 
 def is_prime(n):
-  return len(factor(n)) == 1
+  if n != 2 and n % 2 == 0: return False
+  if n != 3 and n % 3 == 0: return False
+  if n != 5 and n % 5 == 0: return False
+  if n != 7 and n % 7 == 0: return False
+  return len(divisors(n)) == 2
 
 def divisors(n):
   """ returns a list of the divisors that divide into n (including 1 and itself)
