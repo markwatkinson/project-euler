@@ -7,12 +7,10 @@ What is the largest n-digit pandigital prime that exists?
 from lib import euler
 import math
 
-digits = '0123456789'
+digits = '123456789'
 
 while digits:
-
   n = digits
-  print n
   p = 0
   while 1:
     if int(n) > p and euler.is_prime(int(n)):
