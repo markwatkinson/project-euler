@@ -188,4 +188,8 @@ def is_pentagonal(p):
     if soln >= 1 and int(soln) == soln:
       return True
   return False
-  
+
+
+
+def combination(n, r):
+  return math.factorial(n) / (math.factorial(r)*math.factorial(n-r))
