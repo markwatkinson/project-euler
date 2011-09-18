@@ -193,3 +193,6 @@ def is_pentagonal(p):
 
 def combination(n, r):
   return math.factorial(n) / (math.factorial(r)*math.factorial(n-r))
+
+def digital_sum(n):
+  return sum( [int(x) for x in str(n) ] )
