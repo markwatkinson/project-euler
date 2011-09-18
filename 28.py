@@ -9,22 +9,17 @@ http://projecteuler.net/index.php?section=problems&id=28
 # range of numbers, and the diagonals are situated at the 1/4, 1/2, 3/4, 1
 # parts of the range.
 
+from lib import spiraldiagonals
+
+
 
 diagonals = [1]
 last_number = 1
 
+generator = spiraldiagonals.diagonals()
+
 for x in range(3, 1002, 2):
-  # the range is from the last number up to the layer squared.
-  new_numbers = (last_number, x**2)
-  range_ = new_numbers[1] - new_numbers[0]
-
-  diagonals += [
-    (range_/4 + new_numbers[0]),
-    (range_/2 + new_numbers[0]),
-    (3*range_/4 + new_numbers[0]),
-    (new_numbers[1])
-  ]
-
-  last_number = new_numbers[1]
+  ds = generator.next()
+  diagonals += [d for d in ds]
 
 print sum(diagonals)
