@@ -11,6 +11,12 @@ def factor(n):
     a+=1
   return factors
 
+def integers(n=0, step=1):
+  """ Generates a list of integers like xrange, but with no upper boind.
+  Slightly neater than messing around with while loops and counters """
+  while 1:
+    yield n
+    n += step
 
 def is_prime(n):
   if n != 2 and n % 2 == 0: return False
@@ -62,10 +68,9 @@ def square_of_sum(seq):
   return sum(seq)**2
 
 
-def primes():
+def primes(i=2, primes=[]):
   """ Generates prime numbers indefnitely """
-  i = 2
-  primes = []
+  i = max(2, i)
   while 1:
     prime = True
     limit = int(math.sqrt(i))
