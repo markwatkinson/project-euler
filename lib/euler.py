@@ -115,6 +115,21 @@ def lexicographic_permutation(seq):
   new_seq = new_seq[:k+1] + new_seq[k+1:][::-1]
   return new_seq
 
+
+def permutate2(seq):
+  
+  """ Adapted from http://www.daniweb.com/software-development/python/code/216696"""
+  """ return a list of all permutations, order undefined """
+  if not seq:
+    return [seq] # is an empty sequence
+  else:
+    temp = []
+    for k in range(len(seq)):
+      part = seq[:k] + seq[k+1:]
+      for m in permutate(part):
+        temp.append(seq[k:k+1] + m)
+    return temp
+
 def permutate(seq):
   is_str = isinstance(seq, str)
   yield seq
