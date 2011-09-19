@@ -148,6 +148,21 @@ def triangular_numbers(n=1):
   while 1:
     yield n*(n+1)/2
     n += 1
+def square_numbers(n=1):
+  for a in integers(n): yield a*a
+
+def pentagonal_numbers(n=1):
+  for a in integers(n): yield (3*a*a - a)/2
+
+def hexagonal_numbers(n=1):
+  for a in integers(n): yield 2*a*a - a
+
+def heptagonal_numbers(n=1):
+  for a in integers(n): yield (5*a*a - 3*a)/2
+
+def octagonal_numbers(n=1):
+  for a in integers(n): yield 3*a*a - 2*a
+  
 
 def is_triangle(n):
   """ Return true if a number is triangular"""
